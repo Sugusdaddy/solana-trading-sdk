@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Professional Solana Trading SDK - Build trading bots with Jupiter, Jito bundles, position management, and advanced strategies.">
+    <title>Solana Trading SDK | Professional Trading Infrastructure</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .gradient-text { background: linear-gradient(90deg, #00FFA3, #03E1FF); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .glow { box-shadow: 0 0 60px rgba(0, 255, 163, 0.3); }
+    </style>
+</head>
+<body class="bg-black text-white min-h-screen">
+    <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+        <div class="flex items-center gap-2">
+            <span class="text-2xl">⚡</span>
+            <span class="font-bold text-xl">Trading SDK</span>
+        </div>
+        <div class="flex gap-6">
+            <a href="https://github.com/Sugusdaddy/solana-trading-sdk" class="hover:text-green-400">GitHub</a>
+            <a href="#features" class="hover:text-green-400">Features</a>
+            <a href="#examples" class="hover:text-green-400">Examples</a>
+        </div>
+    </nav>
+
+    <div class="container mx-auto px-6 py-20 text-center">
+        <div class="inline-block px-4 py-1 bg-green-500/10 border border-green-500/30 rounded-full text-green-400 text-sm mb-6">
+            v1.0.0 • Production Ready
+        </div>
+        <h1 class="text-6xl font-bold mb-6">
+            <span class="gradient-text">Professional Trading</span><br>Infrastructure
+        </h1>
+        <p class="text-xl text-gray-400 mb-8 max-w-2xl mx-auto">
+            Build lightning-fast trading bots on Solana. Jupiter routing, Jito bundles, MEV protection, and advanced position management.
+        </p>
+        <div class="flex gap-4 justify-center">
+            <a href="https://github.com/Sugusdaddy/solana-trading-sdk" class="bg-green-500 text-black px-8 py-3 rounded-lg font-semibold hover:bg-green-400">
+                Get Started
+            </a>
+            <a href="#examples" class="border border-gray-600 px-8 py-3 rounded-lg hover:border-green-500">
+                View Examples
+            </a>
+        </div>
+    </div>
+
+    <div id="features" class="container mx-auto px-6 py-20">
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="glow bg-gray-900 p-6 rounded-xl border border-gray-800">
+                <div class="text-3xl mb-4">🚀</div>
+                <h3 class="text-xl font-bold mb-2">Jupiter Integration</h3>
+                <p class="text-gray-400">Best price routing across all Solana DEXs. Supports v6 API with smart slippage.</p>
+            </div>
+            <div class="bg-gray-900 p-6 rounded-xl border border-gray-800">
+                <div class="text-3xl mb-4">⚡</div>
+                <h3 class="text-xl font-bold mb-2">Jito Bundles</h3>
+                <p class="text-gray-400">MEV protection and priority execution. Land trades in the same block.</p>
+            </div>
+            <div class="bg-gray-900 p-6 rounded-xl border border-gray-800">
+                <div class="text-3xl mb-4">📊</div>
+                <h3 class="text-xl font-bold mb-2">Position Management</h3>
+                <p class="text-gray-400">Track positions with automatic take-profit and stop-loss execution.</p>
+            </div>
+            <div class="bg-gray-900 p-6 rounded-xl border border-gray-800">
+                <div class="text-3xl mb-4">🔄</div>
+                <h3 class="text-xl font-bold mb-2">DCA Strategy</h3>
+                <p class="text-gray-400">Dollar-cost averaging with customizable intervals and price bounds.</p>
+            </div>
+            <div class="bg-gray-900 p-6 rounded-xl border border-gray-800">
+                <div class="text-3xl mb-4">📈</div>
+                <h3 class="text-xl font-bold mb-2">Grid Trading</h3>
+                <p class="text-gray-400">Automated grid bots with arithmetic and geometric spacing.</p>
+            </div>
+            <div class="bg-gray-900 p-6 rounded-xl border border-gray-800">
+                <div class="text-3xl mb-4">🛡️</div>
+                <h3 class="text-xl font-bold mb-2">Risk Management</h3>
+                <p class="text-gray-400">Built-in risk limits, position sizing, and exposure controls.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="examples" class="bg-gray-900 py-20">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12">Quick Examples</h2>
+            <div class="max-w-3xl mx-auto space-y-8">
+                <div>
+                    <h3 class="text-lg font-semibold mb-3 text-green-400">Simple Swap</h3>
+                    <pre class="bg-black p-4 rounded-lg overflow-x-auto text-sm"><code>const client = new TradingClient(connection, wallet);
+await client.swap({
+  inputMint: 'SOL',
+  outputMint: 'USDC',
+  amount: 1.5,
+  slippageBps: 50
+});</code></pre>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-3 text-green-400">DCA Order</h3>
+                    <pre class="bg-black p-4 rounded-lg overflow-x-auto text-sm"><code>const dca = new DCAStrategy(connection, wallet);
+await dca.createOrder({
+  inputMint: USDC,
+  outputMint: SOL,
+  totalAmount: 1000,
+  intervals: 10,
+  intervalMs: 3600000 // hourly
+});</code></pre>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-3 text-green-400">Position with TP/SL</h3>
+                    <pre class="bg-black p-4 rounded-lg overflow-x-auto text-sm"><code>const position = await manager.openPosition({
+  mint: tokenMint,
+  amount: 100,
+  entryPrice: 1.50,
+  takeProfit: 2.00,  // +33%
+  stopLoss: 1.20,    // -20%
+});</code></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="container mx-auto px-6 py-12 text-center text-gray-500">
+        <p>Built by <a href="https://github.com/Sugusdaddy" class="text-green-400">@Sugusdaddy</a></p>
+    </footer>
+</body>
+</html>
